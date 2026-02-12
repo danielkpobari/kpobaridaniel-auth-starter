@@ -20,8 +20,8 @@ spring:
 
 security:
   jwt:
-    secret: MySecureJwtSecretKeyForProductionUse123456789012345678901234567890
-    expiration: 86400000
+    secret: ${JWT_SECRET:MySecureJwtSecretKeyForProductionUse123456789012345678901234567890}
+    expiration: ${JWT_EXPIRATION:86400000}
     header: Authorization
     prefix: "Bearer "
 

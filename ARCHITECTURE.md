@@ -1,5 +1,14 @@
 # Architecture Diagram
 
+# Architecture Overview
+
+This document describes the high-level architecture and request flow
+of the FCMB Security Assessment application.
+
+The focus is on authentication, authorization, and separation of concerns,
+demonstrating production-grade Spring Security design.
+
+
 ## System Architecture
 
 ```
@@ -319,9 +328,9 @@ Client                  Filter                  Controller              Handler
 ---
 
 This architecture ensures:
-- ✅ Clean separation of concerns
-- ✅ Reusability across projects
-- ✅ Testability
-- ✅ Maintainability
-- ✅ Scalability
-- ✅ Security best practices
+- Clean separation of concerns
+-  Reusability across projects
+-  Testability
+-  Maintainability
+-  Scalability
+-  Security best practices

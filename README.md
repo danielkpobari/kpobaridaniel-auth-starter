@@ -1,6 +1,6 @@
 # Spring Boot Security System - Authentication & Authorization
 
-A production-ready, modular authentication and authorization system built with Spring Boot, demonstrating clean architecture principles through a reusable security starter library.
+A production-oriented, modular authentication and authorization system built with Spring Boot, demonstrating clean architecture principles through a reusable security starter library.
 
 ##  Architecture Overview
 
@@ -105,6 +105,16 @@ This will:
 ```bash
 cd sample-application
 mvn spring-boot:run
+```
+
+**With custom environment variables:**
+
+```bash
+# Linux/Mac
+JWT_SECRET="your-secret-key" JWT_EXPIRATION=3600000 mvn spring-boot:run
+
+# Windows
+set JWT_SECRET=your-secret-key && set JWT_EXPIRATION=3600000 && mvn spring-boot:run
 ```
 
 The application starts on `http://localhost:8080`
@@ -214,22 +224,43 @@ The application comes with pre-configured test users:
 
 ## ⚙️ Configuration
 
+### Environment Variables (Production)
+
+For production deployments, set these environment variables:
+
+```bash
+# Linux/Mac
+export JWT_SECRET="your-super-secure-secret-key-min-64-chars"
+export JWT_EXPIRATION=86400000
+
+# Windows
+set JWT_SECRET=your-super-secure-secret-key-min-64-chars
+set JWT_EXPIRATION=86400000
+
+# Docker
+docker run -e JWT_SECRET="your-secret" -e JWT_EXPIRATION=86400000 ...
+```
+
+### Application Configuration
+
 Configure JWT settings in `application.yml`:
 
 ```yaml
 security:
   jwt:
-    secret: MySecureJwtSecretKeyForProductionUse123456789012345678901234567890
-    expiration: 86400000  # 24 hours in milliseconds
+    secret: ${JWT_SECRET:default-fallback-secret}
+    expiration: ${JWT_EXPIRATION:86400000}  # 24 hours
     header: Authorization
     prefix: "Bearer "
 ```
 
 **Production Recommendations**:
-- Use environment variables for the JWT secret
+-  Application supports environment-based configuration for secure secret management
+- Generate strong secrets: `openssl rand -base64 64`
 - Rotate secrets regularly
 - Use longer expiration for refresh tokens
 - Enable HTTPS in production
+- Never commit secrets to version control
 
 ##  Testing Strategy
 
@@ -336,22 +367,29 @@ mvn test -Dtest=SecurityIntegrationTest
 - **JUnit 5**: Testing framework
 - **MockMvc**: Integration testing
 
-##  Production Deployment Checklist
+## Production Deployment Considerations (Out of Scope for This Assessment)
 
 - [ ] Replace H2 with production database (PostgreSQL, MySQL)
-- [ ] Externalize JWT secret to environment variables
 - [ ] Enable HTTPS/TLS
 - [ ] Implement refresh token mechanism
 - [ ] Add rate limiting
 - [ ] Configure CORS policies
-- [ ] Set up centralized logging (ELK, Splunk)
 - [ ] Implement token blacklisting for logout
 - [ ] Add API documentation (Swagger/OpenAPI)
 - [ ] Configure production logging levels
+- [ ] Use secrets management (AWS Secrets Manager, HashiCorp Vault)
+
+
+## Production Scope Clarification
+
+This assessment focuses on application-level security architecture and clean modular design.
+Infrastructure-level concerns such as TLS termination, rate limiting, centralized logging,
+and API gateway responsibilities are intentionally documented but not implemented, as they
+are typically handled outside the application layer in real-world production environments.
 
 
 
 
 
- 
- 
+
+
