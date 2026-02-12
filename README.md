@@ -2,7 +2,7 @@
 
 A production-ready, modular authentication and authorization system built with Spring Boot, demonstrating clean architecture principles through a reusable security starter library.
 
-## 🏗️ Architecture Overview
+##  Architecture Overview
 
 This project implements a **multi-module Maven architecture** with clear separation of concerns:
 
@@ -19,22 +19,22 @@ security-system/
 - **Zero Configuration**: Auto-configuration via Spring Boot's `AutoConfiguration.imports`
 - **Production-Ready**: Includes logging, exception handling, and standardized error responses
 
-## 📦 Module Responsibilities
+##  Module Responsibilities
 
 ### core-security-starter
 
 **Purpose**: Reusable Spring Boot Starter providing complete authentication and authorization infrastructure
 
 **Contains**:
-- ✅ JWT token generation and validation (`JwtTokenProvider`)
-- ✅ JWT authentication filter (`JwtAuthenticationFilter`)
-- ✅ Spring Security configuration (`SecurityConfig`)
-- ✅ Custom authentication entry point (401 handler)
-- ✅ Custom access denied handler (403 handler)
-- ✅ Global exception handling with standardized error responses
-- ✅ Configurable security properties (JWT secret, expiration, header)
-- ✅ BCrypt password encoding
-- ✅ Request logging (user, method, endpoint)
+-  JWT token generation and validation (`JwtTokenProvider`)
+-  JWT authentication filter (`JwtAuthenticationFilter`)
+-  Spring Security configuration (`SecurityConfig`)
+-  Custom authentication entry point (401 handler)
+-  Custom access denied handler (403 handler)
+-  Global exception handling with standardized error responses
+-  Configurable security properties (JWT secret, expiration, header)
+-  BCrypt password encoding
+-  Request logging (user, method, endpoint)
 
 **Does NOT contain**: Business entities, repositories, controllers, or application-specific logic
 
@@ -43,15 +43,15 @@ security-system/
 **Purpose**: Demonstrates consumption of the security starter with minimal code
 
 **Contains**:
-- ✅ User entity and repository
-- ✅ Authentication service (UserDetailsService implementation)
-- ✅ REST controllers (public, user, admin endpoints)
-- ✅ DTOs for requests/responses
-- ✅ Application configuration
+-  User entity and repository
+-  Authentication service (UserDetailsService implementation)
+-  REST controllers (public, user, admin endpoints)
+-  DTOs for requests/responses
+-  Application configuration
 
 **Does NOT contain**: Any security configuration, filters, JWT logic, or exception handlers
 
-## 🔐 Security Features
+##  Security Features
 
 ### Authentication
 - Username/password authentication
@@ -81,7 +81,7 @@ security-system/
   - `message`: Human-readable message
   - `path`: Request URI
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Java 17 or higher
@@ -116,13 +116,13 @@ mvn test
 ```
 
 Tests verify:
-- ✅ Successful login returns JWT token
-- ✅ Failed login returns 401
-- ✅ Public endpoints accessible without authentication
-- ✅ Protected endpoints require valid JWT
-- ✅ Admin endpoints require ROLE_ADMIN
-- ✅ Missing token returns 401
-- ✅ Insufficient role returns 403
+-  Successful login returns JWT token
+-  Failed login returns 401
+-  Public endpoints accessible without authentication
+-  Protected endpoints require valid JWT
+-  Admin endpoints require ROLE_ADMIN
+-  Missing token returns 401
+-  Insufficient role returns 403
 
 ## 📡 API Endpoints
 
@@ -202,7 +202,7 @@ curl -X GET http://localhost:8080/api/admin/users \
 ]
 ```
 
-## 👥 Test Users
+##  Test Users
 
 The application comes with pre-configured test users:
 
@@ -231,7 +231,7 @@ security:
 - Use longer expiration for refresh tokens
 - Enable HTTPS in production
 
-## 🧪 Testing Strategy
+##  Testing Strategy
 
 ### Integration Tests
 Located in `SecurityIntegrationTest.java`, covering:
@@ -249,7 +249,7 @@ Located in `SecurityIntegrationTest.java`, covering:
 mvn test -Dtest=SecurityIntegrationTest
 ```
 
-## 🎯 Design Decisions & Trade-offs
+##  Design Decisions & Trade-offs
 
 ### 1. Spring Boot Starter Pattern
 **Decision**: Package security as a reusable starter
@@ -314,18 +314,18 @@ mvn test -Dtest=SecurityIntegrationTest
 
 **Trade-off**: Not suitable for production (use PostgreSQL, MySQL, etc.)
 
-## 🔒 Security Best Practices Implemented
+##  Security Best Practices Implemented
 
-1. ✅ **Password Hashing**: BCrypt with salt
-2. ✅ **Stateless Sessions**: JWT-based authentication
-3. ✅ **CSRF Protection**: Disabled for stateless API (appropriate for JWT)
-4. ✅ **Role-Based Access Control**: URL and method-level authorization
-5. ✅ **Secure Error Handling**: No sensitive information in error messages
-6. ✅ **Request Logging**: Audit trail of authenticated requests
-7. ✅ **Token Expiration**: Configurable JWT expiration
-8. ✅ **Separation of Concerns**: Security logic isolated in starter
+1.  **Password Hashing**: BCrypt with salt
+2.  **Stateless Sessions**: JWT-based authentication
+3.  **CSRF Protection**: Disabled for stateless API (appropriate for JWT)
+4.  **Role-Based Access Control**: URL and method-level authorization
+5.  **Secure Error Handling**: No sensitive information in error messages
+6.  **Request Logging**: Audit trail of authenticated requests
+7.  **Token Expiration**: Configurable JWT expiration
+8.  **Separation of Concerns**: Security logic isolated in starter
 
-## 📚 Technology Stack
+##  Technology Stack
 
 - **Spring Boot 3.2.0**: Framework
 - **Spring Security 6.x**: Authentication & Authorization
@@ -336,7 +336,7 @@ mvn test -Dtest=SecurityIntegrationTest
 - **JUnit 5**: Testing framework
 - **MockMvc**: Integration testing
 
-## 🚀 Production Deployment Checklist
+##  Production Deployment Checklist
 
 - [ ] Replace H2 with production database (PostgreSQL, MySQL)
 - [ ] Externalize JWT secret to environment variables
@@ -349,13 +349,9 @@ mvn test -Dtest=SecurityIntegrationTest
 - [ ] Add API documentation (Swagger/OpenAPI)
 - [ ] Configure production logging levels
 
-## 📄 License
-
-This project is a demonstration of Spring Boot security architecture for educational and interview purposes.
-
-## 👨‍💻 Author
 
 
 
-**Kpobari** - [GitHub](#   k p o b a r i d a n i e l - a u t h - s t a r t e r  
+
+ 
  
