@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "security.jwt",
+      "type": "com.fcmb.security.config.SecurityProperties",
+      "sourceType": "com.fcmb.security.config.SecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "security.jwt.expiration",
+      "type": "java.lang.Long",
+      "sourceType": "com.fcmb.security.config.SecurityProperties"
+    },
+    {
+      "name": "security.jwt.header",
+      "type": "java.lang.String",
+      "sourceType": "com.fcmb.security.config.SecurityProperties"
+    },
+    {
+      "name": "security.jwt.prefix",
+      "type": "java.lang.String",
+      "sourceType": "com.fcmb.security.config.SecurityProperties"
+    },
+    {
+      "name": "security.jwt.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.fcmb.security.config.SecurityProperties"
+    }
+  ],
+  "hints": []
+}
